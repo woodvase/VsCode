@@ -18,7 +18,7 @@ namespace LeetCode
                     ret[1] = Math.Max(i, dict[diff]);
                     return ret;
                 }
-                else
+                if (!dict.ContainsKey(nums[i]))
                 {
                     dict.Add(nums[i], i);
                 }
