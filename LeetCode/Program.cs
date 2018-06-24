@@ -7,6 +7,14 @@ namespace LeetCode
         static void Main(string[] args)
         {
             Solution solution = new Solution();
+            int[] a = { 8, 9, 10, 2 };
+            solution.QuickSort(a);
+            Console.WriteLine("After sort:");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine(a[i]);
+            }
+
             int[] testData = new int[] { 2, 7, 11, 15 };
             int[] result = solution.TwoSum(testData, 9);
             foreach (int i in result)
