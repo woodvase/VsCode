@@ -10,7 +10,7 @@ namespace LeetCode
             {
                 return false;
             }
-            if(string.IsNullOrWhiteSpace(pattern) && string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(pattern) && string.IsNullOrWhiteSpace(str))
             {
                 return true;
             }
@@ -23,18 +23,30 @@ namespace LeetCode
                 return false;
             }
 
-            Dictionary<char, string> dict = new Dictionary<char, string>();
+            Dictionary<char, string> dictPToS = new Dictionary<char, string>();
+            Dictionary<string, char> dictSToP = new Dictionary<string, char>();
             for (int i = 0; i < pLen; i++)
             {
-                if (!dict.ContainsKey(pattern[i]))
+                if (!dictPToS.ContainsKey(pattern[i]))
                 {
-                    dict.Add(pattern[i], strs[i]);
+                    dictPToS.Add(pattern[i], strs[i]);
+
                 }
-                else if (dict[pattern[i]] != strs[i])
+                else if (dictPToS[pattern[i]] != strs[i])
+                {
+                    return false;
+                }
+
+                if (!dictSToP.ContainsKey(strs[i]))
+                {
+                    dictSToP.Add(strs[i], pattern[i]);
+                }
+                else if (dictSToP[strs[i]] != pattern[i])
                 {
                     return false;
                 }
             }
+
             return true;
         }
     }

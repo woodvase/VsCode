@@ -7,6 +7,8 @@ namespace LeetCode
         static void Main(string[] args)
         {
             Solution solution = new Solution();
+            solution.LengthOfLongestSubstring("abba");
+            solution.LongestSubstringV1("aacbbbdc", 2);
             int[] a = { 8, 9, 10, 2 };
             solution.QuickSort(a);
             Console.WriteLine("After sort:");
