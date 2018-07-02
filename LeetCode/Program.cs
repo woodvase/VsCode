@@ -7,6 +7,12 @@ namespace LeetCode
         static void Main(string[] args)
         {
             Solution solution = new Solution();
+
+            TreeNode tn1 = new TreeNode(-2);
+            TreeNode tn2 = new TreeNode(-3);
+            tn1.right = tn2;
+            solution.PathSum(tn1, -5);
+
             solution.LengthOfLongestSubstring("abba");
             solution.LongestSubstringV1("aacbbbdc", 2);
             int[] a = { 8, 9, 10, 2 };
