@@ -274,20 +274,9 @@ namespace LeetCode
 
             for (int i = 0; i < rowCnt; i++)
             {
-                if (rows[i] == 1)
+                for (int j = 0; j < colCnt; j++)
                 {
-                    for (int j = 0; j < colCnt; j++)
-                    {
-                        matrix[i, j] = 0;
-                    }
-                }
-            }
-
-            for (int j = 0; j < colCnt; j++)
-            {
-                if (cols[j] == 1)
-                {
-                    for (int i = 0; i < rowCnt; i++)
+                    if (rows[i] == 1 || cols[j] == 1)
                     {
                         matrix[i, j] = 0;
                     }
