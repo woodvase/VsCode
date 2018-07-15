@@ -6,7 +6,34 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
+            CrackCode crackCode = new CrackCode();
+            char[,] charMatrix = new char[2, 2] {
+                {'a','b'},
+                {'c','d'}
+            };
+
+            int[,] intMatrix = new int[,]{
+                {1,1,1},
+                {2,3,0}
+            };
+
+            var zeroedMatrix = crackCode.SetRowColTo0(intMatrix);
+            var rotated = crackCode.Rotate90Degrees(charMatrix);
+            var rotatedInplace = crackCode.Rotate90DegreesInPlace(charMatrix);
+
+
+            Console.WriteLine(crackCode.RemoveDuplicateChars("aaabbbs"));
+            Console.WriteLine(crackCode.IsWithUniqueChars("aba"));
+            Console.WriteLine(crackCode.ReverseString("abc12345"));
+
             Solution solution = new Solution();
+
+            var f = solution.Fibonacci(12);
+            Console.WriteLine("Fibonacci Numbers:");
+            foreach (int i in f)
+            {
+                Console.WriteLine(i);
+            }
 
             TreeNode tn1 = new TreeNode(-2);
             TreeNode tn2 = new TreeNode(-3);
