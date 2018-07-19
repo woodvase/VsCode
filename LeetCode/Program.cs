@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LeetCode
 {
@@ -7,6 +8,17 @@ namespace LeetCode
         static void Main(string[] args)
         {
             CrackCode crackCode = new CrackCode();
+            int n = 4;
+            Stack<int> T1 = new Stack<int>();
+            while (n > 0)
+            {
+                T1.Push(n--);
+            }
+
+            Stack<int> T2 = new Stack<int>();
+            Stack<int> T3 = new Stack<int>();
+            crackCode.HanoiTower(4, T1, T2, T3);
+
             char[,] charMatrix = new char[2, 2] {
                 {'a','b'},
                 {'c','d'}
@@ -27,6 +39,15 @@ namespace LeetCode
             Console.WriteLine(crackCode.ReverseString("abc12345"));
 
             Solution solution = new Solution();
+
+            TreeNode tn3 = new TreeNode(3);
+            tn3.left = new TreeNode(9);
+            TreeNode tn4 = new TreeNode(20);
+            tn3.right = tn4;
+            tn4.left = new TreeNode(15);
+            tn4.right = new TreeNode(7);
+            solution.IsBalanced(tn3);
+            
 
             var f = solution.Fibonacci(12);
             Console.WriteLine("Fibonacci Numbers:");
