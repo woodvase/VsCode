@@ -13,20 +13,20 @@ namespace LeetCode
                 return 1;
             }
 
-            int[] ret = new int[n];
+            long[] ret = new long[n];
             ret[0] = 1;
             int[] primes = { 2, 3, 5 };
 
             for (int i = 1; i < n; i++)
             {
-                ret[i] = int.MaxValue;
+                ret[i] = Int64.MaxValue;
                 for (int j = 0; j < i; j++)
                 {
                     if (ret[j] > (ret[i - 1] / 5))
                     {
                         for (int k = 0; k < primes.Length; k++)
                         {
-                            int tmp = ret[j] * primes[k];
+                            long tmp = ret[j] * primes[k];
                             if (tmp > ret[i - 1] && tmp < ret[i])
                             {
                                 ret[i] = tmp;
@@ -37,7 +37,7 @@ namespace LeetCode
                 }
             }
 
-            return ret[n - 1];
+            return (int)ret[n - 1];
         }
     }
 }
