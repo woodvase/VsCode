@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DynamicPrograming;
 
 namespace LeetCode
 {
@@ -7,7 +8,25 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
+            Solution solution = new Solution();
+            Console.WriteLine(solution.NthUglyNumber(11));
+
+            int[] arr = { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 };
+            Console.WriteLine(DynamicprogrammingQuestions.MinJumpsToEnd(arr));
+
+            int[] w = new int[] { 30, 10, 20 };
+            int[] v = new int[] { 120, 60, 100 };
+            Console.WriteLine(DynamicprogrammingQuestions.Knapsack(v, w, 30));
+
+            int[] prices = new int[] { 1, 5, 8, 9, 10, 17, 17, 20 };
+            Console.WriteLine(DynamicprogrammingQuestions.CutRod(prices, 8));
+            Console.WriteLine(DynamicprogrammingQuestions.CutRodRecursive(prices, 8));
+
+            HashSet<string> dict = new HashSet<string> { "i", "like", "sam", "samsung", "mobile", "ice", "cream", "icecream", "man", "go", "mango" };
+            Console.WriteLine(DynamicprogrammingQuestions.WordBreak(dict, "ilikei"));
+
             CrackCode crackCode = new CrackCode();
+            crackCode.updateBits(1000000000, 10101, 2, 6);
             int n = 4;
             Stack<int> T1 = new Stack<int>();
             while (n > 0)
@@ -38,8 +57,6 @@ namespace LeetCode
             Console.WriteLine(crackCode.IsWithUniqueChars("aba"));
             Console.WriteLine(crackCode.ReverseString("abc12345"));
 
-            Solution solution = new Solution();
-
             TreeNode tn3 = new TreeNode(3);
             tn3.left = new TreeNode(9);
             TreeNode tn4 = new TreeNode(20);
@@ -47,7 +64,7 @@ namespace LeetCode
             tn4.left = new TreeNode(15);
             tn4.right = new TreeNode(7);
             solution.IsBalanced(tn3);
-            
+
 
             var f = solution.Fibonacci(12);
             Console.WriteLine("Fibonacci Numbers:");
