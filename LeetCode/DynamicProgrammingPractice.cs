@@ -96,21 +96,21 @@ namespace DynamicPrograming
             throw new NotImplementedException();
         }
 
-        public static int MinJumpsToEnd(int[] jumps)
+        public static int MinJumpsToEnd(int[] nums)
         {
-            if (jumps.Length == 0 || jumps[0] == 0)
+            if (nums.Length == 0 || nums[0] == 0)
             {
                 return Int32.MaxValue;
             }
 
-            int[] minJumps = new int[jumps.Length];
+            int[] minJumps = new int[nums.Length];
 
-            for (int j = 1; j < jumps.Length; j++)
+            for (int j = 1; j < nums.Length; j++)
             {
                 int jump = Int32.MaxValue;
                 for (int k = 0; k < j; k++)
                 {
-                    if (jumps[k] >= j - k && minJumps[k] != Int32.MaxValue)
+                    if (nums[k] >= j - k && minJumps[k] != Int32.MaxValue)
                     {
                         jump = Math.Min(jump, minJumps[k] + 1);
 
@@ -124,7 +124,13 @@ namespace DynamicPrograming
                 minJumps[j] = jump;
             }
 
-            return minJumps[jumps.Length - 1];
+            return minJumps[nums.Length - 1];
+        }
+
+        // https://leetcode.com/problems/frog-jump/description/
+        public static bool CanCross(int[] stones)
+        {
+            throw new NotImplementedException();
         }
     }
-}
+}            
