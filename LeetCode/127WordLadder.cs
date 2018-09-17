@@ -5,34 +5,44 @@ namespace LeetCode
 
     public partial class Solution
     {
+        // https://leetcode.com/submissions/detail/175252776/
         public int LadderLength(string beginWord, string endWord, IList<string> wordList)
         {
-            int level = 0;
+            int level = 1;
+            HashSet<string> dict = new HashSet<string>(wordList);
             Queue<string> queue = new Queue<string>();
             queue.Enqueue(beginWord);
             int curCnt = 1;
             int nextCnt = 0;
+            HashSet<string> visited = new HashSet<string>();
+            
             while (queue.Count > 0)
             {
-                char[] s = queue.Dequeue().ToCharArray();
+                string s = queue.Dequeue();
                 curCnt--;
-                
+
                 for (int i = 0; i < s.Length; i++)
                 {
                     for (char j = 'a'; j <= 'z'; j++)
                     {
+                        char[] a = s.ToCharArray();
                         if (s[i] != j)
                         {
-                            s[i] = j;
-                            string newS = new string(s);
-                            if (newS == endWord)
+                            a[i] = j;
+                            string newStr = new string(a);
+
+                            if (dict.Contains(newStr))
                             {
-                                return level + 1;
-                            }
-                            if (wordList.Contains(newS))
-                            {
-                                queue.Enqueue(newS);
-                                nextCnt++;
+                                if (newStr == endWord)
+                                {
+                                    return level + 1;
+                                }
+                                if (!visited.Contains(newStr))
+                                {
+                                    visited.Add(newStr);
+                                    queue.Enqueue(newStr);
+                                    nextCnt++;
+                                }
                             }
                         }
                     }
