@@ -2,11 +2,12 @@ namespace LeetCode
 {
     using System;
     using System.Collections.Generic;
-    
 
-   public partial class Solution {
-    public bool CanConstruct(string ransomNote, string magazine) {
-        if(string.IsNullOrEmpty(ransomNote))
+    public partial class Solution
+    {
+        public bool CanConstruct(string ransomNote, string magazine)
+        {
+            if (string.IsNullOrEmpty(ransomNote))
             {
                 return true;
             }
@@ -20,23 +21,23 @@ namespace LeetCode
             int[] dict2 = new int[26];
             for (int i = 0; i < ransomNote.Length; i++)
             {
-                dict1[ransomNote[i]-'a'] ++;
+                dict1[ransomNote[i] - 'a']++;
             }
 
-            for(int j = 0; j < magazine.Length; j ++)
+            for (int j = 0; j < magazine.Length; j++)
             {
-                dict2[magazine[j] - 'a'] ++;
+                dict2[magazine[j] - 'a']++;
             }
 
-            for(int i = 0; i < 26; i ++)
+            for (int i = 0; i < 26; i++)
             {
-                if(dict2[i] < dict1[i])
+                if (dict2[i] < dict1[i])
                 {
                     return false;
                 }
             }
 
             return true;
+        }
     }
-}
 }
