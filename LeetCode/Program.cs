@@ -8,6 +8,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(4 | 5);
+            Console.WriteLine(-2 | 5);
             var cache = new LRUCache(2);
             cache.Put(1, 1);
             cache.Put(2, 2);
@@ -19,8 +21,28 @@ namespace LeetCode
             Console.WriteLine(cache.Get(3));
             Console.WriteLine(cache.Get(4));
 
+            int[][] sortedArray = new int[][] { new int[] { 1, 5, 9 }, new int[] { 10, 11, 13 }, new int[] { 12, 13, 15 } };
             Solution solution = new Solution();
-            int[,] ia = {{6, 9, 7}};
+
+            string sum = solution.Sumup("980", "9152");
+            solution.kthSmallest(sortedArray, 8);
+            solution.GenerateParenthesis(3);
+            int[] nums = { 1, 1, 1, 2, 2, 3 };
+            solution.TopKFrequent(nums, 2);
+
+            ListNode ln1 = new ListNode(2);
+            ListNode ln2 = null;
+            solution.GetIntersectionNode(ln2, ln1);
+
+            int[,] lot = new int[,] { { 1, 1, 1, 1 }, { 0, 1, 1, 1 }, { 0, 1, 0, 1 }, { 1, 1, 9, 1 }, { 0, 0, 1, 1 } };
+            int removeSteps = solution.removeObstacleBfs(5, 4, lot);
+            int removeSteps1 = solution.removeObstacle(5, 4, lot);
+
+            int[,] dots = new int[,] { { 3, 6 }, { 2, 4 }, { 5, 3 }, { 2, 7 }, { 1, 8 }, { 7, 9 } };
+            var ret = solution.ClosestXdestinations(6, dots, 2);
+
+            solution.CoinChange(new int[] { 9, 6, 5, 1 }, 11);
+            int[,] ia = { { 6, 9, 7 } };
             solution.SpiralOrder(ia);
 
             int[] p = { 1, 2, 3 };
