@@ -24,6 +24,8 @@ namespace LeetCode
             int[][] sortedArray = new int[][] { new int[] { 1, 5, 9 }, new int[] { 10, 11, 13 }, new int[] { 12, 13, 15 } };
             Solution solution = new Solution();
 
+            solution.CheckInclusion("hello", "ooolleoooleh");
+
             string sum = solution.Sumup("980", "9152");
             solution.kthSmallest(sortedArray, 8);
             solution.GenerateParenthesis(3);
