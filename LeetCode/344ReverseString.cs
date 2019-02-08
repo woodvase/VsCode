@@ -56,6 +56,31 @@ namespace LeetCode
             return ret;
         }
 
-        
+        public uint reverseBits(uint n)
+        {
+            Queue<uint> q = new Queue<uint>();
+            while (n != 0)
+            {
+                q.Enqueue(n % 2);
+                n = n / 2;
+            }
+
+            int m = q.Count;
+            uint r = 0;
+            while (q.Count > 0)
+            {
+                r = r * 2 + q.Dequeue();
+            }
+
+            m = 32 - m;
+            int i = 0;
+            while (i < m)
+            {
+                r = r << 1;
+                i++;
+            }
+
+            return r;
+        }
     }
 }

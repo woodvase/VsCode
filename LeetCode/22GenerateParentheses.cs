@@ -2,33 +2,38 @@ namespace LeetCode
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
 
     public partial class Solution
     {
         public IList<string> GenerateParenthesis(int n)
         {
             List<string> ret = new List<string>();
-            this.GenerateParenthesisHelper(ret, "", 0, 0, n);
+            StringBuilder sb = new StringBuilder();
+            this.Helper(0, 0, n, ret, sb);
             return ret;
         }
 
-        private void GenerateParenthesisHelper(List<string> strs, string str, int open, int close, int n)
+        private void Helper(int leftCnt, int rightCnt, int n, IList<string> lists, StringBuilder sb)
         {
-            if (str.Length == n * 2)
+            if (sb.Length == n * 2)
             {
-                strs.Add(str);
-                Console.WriteLine(str);
+                lists.Add(sb.ToString());
                 return;
             }
 
-            if (open < n)
+            if (leftCnt < n)
             {
-                this.GenerateParenthesisHelper(strs, str + '(', open + 1, close, n);
+                sb.Append('(');
+                this.Helper(leftCnt + 1, rightCnt, n, lists, sb);
+                sb.Length = sb.Length - 1;
             }
 
-            if (close < open)
+            if (rightCnt < leftCnt)
             {
-                this.GenerateParenthesisHelper(strs, str + ')', open, close + 1, n);
+                sb.Append(')');
+                this.Helper(leftCnt, rightCnt + 1, n, lists, sb);
+                sb.Length = sb.Length - 1;
             }
         }
     }

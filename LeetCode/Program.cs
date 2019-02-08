@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using DynamicPrograming;
 
 namespace LeetCode
@@ -8,8 +9,33 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(4 | 5);
-            Console.WriteLine(-2 | 5);
+            string testStr = "\tab";
+            Console.WriteLine(testStr.Length);
+            Console.WriteLine(testStr.LastIndexOf('\t'));
+            Console.WriteLine(testStr.Substring(2, 0));
+
+            HeapSort hs = new HeapSort(new int[] { 49, 38, 65, 97, 76, 13, 27, 49 });
+            int[] sorted = hs.Sort();
+            
+            Solution solution = new Solution();
+            solution.lengthLongestPath("a");
+            solution.IsMatch("a", "a*");
+            char[,] board1 = new char[,] { { 'X', 'X', 'X', 'X' }, { 'X', 'O', 'O', 'X' }, { 'X', 'X', 'O', 'X' }, { 'X', 'O', 'X', 'X' } };
+            solution.Solve(board1);
+            TreeNode t1 = new TreeNode(5);
+            t1.right = new TreeNode(6);
+            solution.DeleteNode(t1, 6);
+
+            var disjointSet = new DisjointSet(10);
+            int r = disjointSet.Find(0);
+            r = disjointSet.Find(1);
+            disjointSet.Union(0, 1);
+            r = disjointSet.Find(0);
+            r = disjointSet.Find(1);
+            disjointSet.Union(1, 2);
+            disjointSet.Union(5, 6);
+            disjointSet.Union(2, 5);
+
             var cache = new LRUCache(2);
             cache.Put(1, 1);
             cache.Put(2, 2);
@@ -22,14 +48,35 @@ namespace LeetCode
             Console.WriteLine(cache.Get(4));
 
             int[][] sortedArray = new int[][] { new int[] { 1, 5, 9 }, new int[] { 10, 11, 13 }, new int[] { 12, 13, 15 } };
-            Solution solution = new Solution();
 
+
+            solution.SumUpInString("1+2-3+4-5+6-7");
+            solution.WallsAndGates(new int[,] {{ int.MaxValue,-1,0,int.MaxValue},
+                                                { int.MaxValue,int.MaxValue,int.MaxValue,-1},
+                                                {int.MaxValue,-1,int.MaxValue,-1 },
+                                                {0,-1,int.MaxValue,int.MaxValue} });
+            solution.FindKthLargest(new int[] { -1, 2, 0 }, 1);
+            char[,] board = new char[,] { { 'a', 'b' } };
+            solution.Exist(board, "ba");
+
+            solution.GenerateParenthesis(2);
+            TreeNode m1 = new TreeNode(5);
+            m1.left = new TreeNode(3);
+            m1.right = new TreeNode(6);
+            m1.left.left = new TreeNode(2);
+            m1.left.right = new TreeNode(4);
+            m1.left.left.left = new TreeNode(1);
+
+            solution.kthSmallest(m1, 3);
+
+            solution.ThreeSum(new int[] { -2, 0, 0, 2, 2 });
+
+            Console.WriteLine(solution.CountPrimes(100));
             solution.SearchMatrix(new int[,] { { 1 }, { 3 }, { 5 } }, 2);
             solution.CheckInclusion("hello", "ooolleoooleh");
 
             string sum = solution.Sumup("980", "9152");
             solution.kthSmallest(sortedArray, 8);
-            solution.GenerateParenthesis(3);
             int[] nums = { 1, 1, 1, 2, 2, 3 };
             solution.TopKFrequent(nums, 2);
 
@@ -105,7 +152,6 @@ namespace LeetCode
             tn4.left = new TreeNode(15);
             tn4.right = new TreeNode(7);
             solution.IsBalanced(tn3);
-
 
             var f = solution.Fibonacci(12);
             Console.WriteLine("Fibonacci Numbers:");

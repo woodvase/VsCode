@@ -18,7 +18,7 @@ namespace LeetCode
 
             int r = 0;
             int c = col - 1;
-            while (r < row && col >= 0)
+            while (r < row && c >= 0)
             {
                 if (target == matrix[r, c])
                 {
